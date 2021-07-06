@@ -82,7 +82,18 @@ int main(int argc, char *argv[]) {
     exit(1);
   }
 }
-
+int search(FILE *fp,char *){
+   FILE *fp = open_db_file();
+  if(fp==NULL)
+    return 0;
+  else
+  {
+  
+  
+  
+  
+  }
+}
 FILE *open_db_file() {
   FILE *fp=fopen(DB, "r");
   if (fp == NULL) {
