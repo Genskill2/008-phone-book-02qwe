@@ -82,16 +82,25 @@ int main(int argc, char *argv[]) {
     exit(1);
   }
 }
-int search(FILE *fp,char *){
+int search(FILE *fp,char *name){
    FILE *fp = open_db_file();
   if(fp==NULL)
-    return 0;
+    return 1;
   else
-  {
-  
-  
-  
-  
+  { int f=1;
+     entry *head=load_entries(FILE *fp);
+     while(head!=NULL)
+     {
+       if(strcmp(head->name,name)=0)
+       {
+         
+         
+         f=0;
+         return f;
+       }
+       else
+       head=head->next;
+     }
   }
 }
 FILE *open_db_file() {
