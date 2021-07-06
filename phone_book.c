@@ -94,6 +94,12 @@ FILE *open_db_file() {
   
 void free_entries(entry *p) {
   /* TBD */
+  while(p!=NULL){
+  struct entry *temp=p; 
+    p=p->next;
+    free(temp);    
+  }
+  if(p!=NULL)
   printf("Memory is not being freed. This needs to be fixed!\n");  
 }
 
@@ -210,6 +216,22 @@ int delete(FILE *db_file, char *name) {
       */
 
       /* TBD */
+      struct node*temp;
+      if(strcmp(base->name, name) == 0)
+      {  temp=base;
+        base=base->next;          
+        free(temp);
+      }
+      else
+      {
+           temp=p;
+           prev->next=p->next;      
+           free(temp);      
+      }
+    }
+    else
+   { prev=p;
+    p=p->next;
     }
   }
   write_all_entries(base);
