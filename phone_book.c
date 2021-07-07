@@ -263,7 +263,7 @@ int delete(FILE *db_file, char *name) {
 }
 int search(FILE *fp,char *name){
      if(fp==NULL)
-    return 0;
+    return 1;
   else
   { int f=1;
     entry *head = load_entries(fp);
@@ -280,7 +280,7 @@ int search(FILE *fp,char *name){
        head=head->next;
      }
     if(head==NULL)
-    return 0;
+    return f;
      free_entries(head);
   }
 
