@@ -243,10 +243,10 @@ int search(FILE *fp,char *name){
     return 1;
   else
   { int f=1;
-     entry *head=load_entries(FILE *fp);
+     entry *head=fp;
      while(head!=NULL)
      {
-       if(strcmp(head->name,name)=0)
+       if(strcmp(head->name,name)==0)
        {
          
          
