@@ -247,10 +247,12 @@ int delete(FILE *db_file, char *name) {
            prev->next=p->next;      
            free(temp);      
       }
+      return 1;
     }
     else
    { prev=p;
     p=p->next;
+     return 0;
     }
   }
   write_all_entries(base);
@@ -259,7 +261,7 @@ int delete(FILE *db_file, char *name) {
 }
 int search(FILE *fp,char *name){
      if(fp==NULL)
-    return 1;
+    return 0;
   else
   { int f=1;
     entry *head = load_entries(fp);
@@ -269,14 +271,14 @@ int search(FILE *fp,char *name){
        {
          
          printf("%s\n",head->phone);
-         f=0;
+        /* f=0;*/
          return f;
        }
        else
        head=head->next;
      }
     if(head==NULL)
-    return 1;
+    return 0;
      free_entries(head);
   }
 
