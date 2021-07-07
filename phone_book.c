@@ -82,27 +82,7 @@ int main(int argc, char *argv[]) {
     exit(1);
   }
 }
-int search(FILE *fp,char *name){
-   FILE *fp = open_db_file();
-  if(fp==NULL)
-    return 1;
-  else
-  { int f=1;
-     entry *head=load_entries(FILE *fp);
-     while(head!=NULL)
-     {
-       if(strcmp(head->name,name)=0)
-       {
-         
-         
-         f=0;
-         return f;
-       }
-       else
-       head=head->next;
-     }
-  }
-}
+
 FILE *open_db_file() {
   FILE *fp=fopen(DB, "r");
   if (fp == NULL) {
@@ -115,7 +95,7 @@ FILE *open_db_file() {
 void free_entries(entry *p) {
   /* TBD */
   while(p!=NULL){
-  struct entry *temp=p; 
+    entry *temp=p; 
     p=p->next;
     free(temp);    
   }
@@ -236,7 +216,7 @@ int delete(FILE *db_file, char *name) {
       */
 
       /* TBD */
-      struct node*temp;
+      entry *temp;
       if(strcmp(base->name, name) == 0)
       {  temp=base;
         base=base->next;          
@@ -257,4 +237,28 @@ int delete(FILE *db_file, char *name) {
   write_all_entries(base);
   free_entries(base);
   return deleted;
+}
+int search(FILE *fp,char *name){
+     if(fp==NULL)
+    return 1;
+  else
+  { int f=1;
+     entry *head=load_entries(FILE *fp);
+     while(head!=NULL)
+     {
+       if(strcmp(head->name,name)=0)
+       {
+         
+         
+         f=0;
+         return f;
+       }
+       else
+       head=head->next;
+     }
+    if(head==NULL)
+    return 1;
+     free_entries(head);
+  }
+fclose(fp);
 }
