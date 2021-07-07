@@ -252,8 +252,8 @@ int delete(FILE *db_file, char *name) {
     else
    { prev=p;
     p=p->next;
-     return 0;
     }
+     return 0;   
   }
   write_all_entries(base);
   free_entries(base);
@@ -271,7 +271,7 @@ int search(FILE *fp,char *name){
        {
          
          printf("%s\n",head->phone);
-        /* f=0;*/
+         f=0;*/
          return f;
        }
        else
