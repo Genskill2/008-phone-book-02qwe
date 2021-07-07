@@ -71,7 +71,7 @@ int main(int argc, char *argv[]) {
     }
      FILE *fp = open_db_file();
       char *name = argv[2];
-    int f=serch(fp, name);
+    int f=search(fp, name);
     if (!search(fp, name)) {
       printf("no match\n");
       fclose(fp);
@@ -261,7 +261,7 @@ int search(FILE *fp,char *name){
     return 1;
   else
   { int f=1;
-     entry *head=fp;
+    entry *head = load_entries(fp);
      while(head!=NULL)
      {
        if(strcmp(head->name,name)==0)
