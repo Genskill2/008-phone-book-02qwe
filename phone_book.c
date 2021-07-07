@@ -38,10 +38,11 @@ void write_all_entries(entry *); /* Given the first node of a linked
 
 
 int main(int argc, char *argv[]) {
-  if (argc == 1) {
+  if (argc == 1)
+  {
     print_usage("Insufficient arguments", argv[0]);
     exit(1);
-  } 
+    } 
 
   if (strcmp(argv[1], "add") == 0) {   /* Handle add */
     if (argc != 4) {
@@ -52,7 +53,8 @@ int main(int argc, char *argv[]) {
     char *phone = argv[3];
     add(name, phone);
     exit(0);
-  } else if (strcmp(argv[1], "list") == 0) {  /* Handle list */
+    } 
+  else if (strcmp(argv[1], "list") == 0) {  /* Handle list */
     if (argc != 2) {
       print_usage("Improper arguments for list", argv[0]);
       exit(1);
@@ -62,8 +64,11 @@ int main(int argc, char *argv[]) {
     fclose(fp);
     exit(0);
   } else if (strcmp(argv[1], "search") == 0) {  /* Handle search */
-    printf("NOT IMPLEMENTED!\n"); /* TBD  */
-  } else if (strcmp(argv[1], "delete") == 0) {  /* Handle delete */
+     /*printf("NOT IMPLEMENTED!\n");  TBD  */
+     FILE *fp = open_db_file();
+    
+    } 
+    else if (strcmp(argv[1], "delete") == 0) {  /* Handle delete */
     if (argc != 3) {
       print_usage("Improper arguments for delete", argv[0]);
       exit(1);
