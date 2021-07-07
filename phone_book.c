@@ -174,8 +174,11 @@ entry *load_entries(FILE *fp) {
   */        
   while (fscanf(fp, "%20[^,\n],%20[^,\n]\n", name, phone) != EOF) {
     tmp = create_entry_node(name, phone);
+    strcpy(tmp->name,name);
+    strcpy(tmp->phone,phone);
     if (ret == NULL)
-      ret = tmp;
+    { ret = tmp;
+      ret->next=current;}
     else
       current->next = tmp;
     current = tmp;
