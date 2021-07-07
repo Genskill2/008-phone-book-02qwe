@@ -236,24 +236,26 @@ int delete(FILE *db_file, char *name) {
 
       /* TBD */
       entry *temp;
-      if(strcmp(base->name, name) == 0)
-      {  temp=base;
-        base=base->next;          
-        free(temp);
-      }
-      else
-      {
+         if(strcmp(base->name, name) == 0)
+          {  temp=base;
+             base=base->next;          
+             free(temp);
+           }
+         else
+         {
            temp=p;
            prev->next=p->next;      
            free(temp);      
-      }
-      return 1;
-    }
+         }
+      return 0;
+    }//Ending of if
     else
    { prev=p;
     p=p->next;
     }
-     return 0;   
+    if(p==NULL)
+    {deleted=1;
+    break;}
   }
   write_all_entries(base);
   free_entries(base);
