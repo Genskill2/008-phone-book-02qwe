@@ -66,7 +66,7 @@ int main(int argc, char *argv[]) {
   } else if (strcmp(argv[1], "search") == 0) {  /* Handle search */
      /*printf("NOT IMPLEMENTED!\n");  TBD  */
      FILE *fp = open_db_file();
-    
+     
     } 
     else if (strcmp(argv[1], "delete") == 0) {  /* Handle delete */
     if (argc != 3) {
@@ -254,7 +254,7 @@ int search(FILE *fp,char *name){
        if(strcmp(head->name,name)==0)
        {
          
-         
+         printf("%s\n",head->phone);
          f=0;
          return f;
        }
