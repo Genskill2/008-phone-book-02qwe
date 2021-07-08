@@ -47,7 +47,7 @@ int main(int argc, char *argv[]) {
   if (strcmp(argv[1], "add") == 0) {   /* Handle add */
     if (argc != 4) {
       print_usage("Improper arguments for add", argv[0]);
-      exit(1);
+      exit(0);
     }
     char *name = argv[2];
     char *phone = argv[3];
@@ -57,7 +57,7 @@ int main(int argc, char *argv[]) {
   else if (strcmp(argv[1], "list") == 0) {  /* Handle list */
     if (argc != 2) {
       print_usage("Improper arguments for list", argv[0]);
-      exit(1);
+      exit(0);
     }
     FILE *fp = open_db_file();
     list(fp);
@@ -75,7 +75,7 @@ int main(int argc, char *argv[]) {
     if (!search(fp, name)) {
       printf("no match\n");
       fclose(fp);
-      exit(1);
+      exit(0);
     }
     fclose(fp);
     exit(0);     
@@ -91,7 +91,7 @@ int main(int argc, char *argv[]) {
     if (!delete(fp, name)) {
       printf("no match\n");
       fclose(fp);
-      exit(1);
+      exit(0);
     }
     fclose(fp);
     exit(0);
