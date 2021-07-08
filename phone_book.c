@@ -210,7 +210,7 @@ void list(FILE *db_file) {
     p=p->next;
   }
   /* TBD print total count */
-  printf("Total entries : %d\n",count);
+  printf("Total entries : %i\n",count);
   free_entries(base);
 }
 
@@ -247,7 +247,7 @@ int delete(FILE *db_file, char *name) {
            prev->next=p->next;      
            free(temp);      
          }
-      return 0;
+      return 1;
     }//Ending of if
     else
    { prev=p;
