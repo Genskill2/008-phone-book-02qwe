@@ -247,14 +247,14 @@ int delete(FILE *db_file, char *name) {
            prev->next=p->next;      
            free(temp);      
          }
-      return 1;
+      return 0;
     }//Ending of if
     else
    { prev=p;
     p=p->next;
     }
     if(p==NULL)
-    {deleted=1;
+    {deleted=0;
     break;}
   }
   write_all_entries(base);
