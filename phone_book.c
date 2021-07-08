@@ -276,7 +276,7 @@ int search(FILE *fp,char *name){
          f=0;
          return f;
        }
-       else
+       
        head=head->next;
      }
     if(head==NULL)
